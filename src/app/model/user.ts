@@ -6,4 +6,5 @@ export class User{
     email:string;
     address:string;
     picture:string;
+    category: string
 }

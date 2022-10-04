@@ -5,7 +5,7 @@
     <div class="row align-items-center">
         <div class="col-md-6">
             <div class="mb-3">
-                <h5 class="card-title">Contact List <span class="text-muted fw-normal ms-2">(834)</span></h5>
+                <h5 class="card-title">User List <span class="text-muted fw-normal ms-2">({{list.length}})</span></h5>
             </div>
         </div>
         <div class="col-md-6">
@@ -36,7 +36,7 @@
     </div>
     <div class="row">
         <div class="col-xl-3 col-sm-6" *ngFor="let user of list">
-            <div class="card">
+            <div class="card" >
                 <div class="card-body">
                     <div class="dropdown float-end">
                         <a class="text-muted dropdown-toggle font-size-16" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true"><i class="bx bx-dots-horizontal-rounded"></i></a>

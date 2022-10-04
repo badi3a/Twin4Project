@@ -14,6 +14,7 @@ export class UserListComponent implements OnInit {
     this.list=[
       {
         id: 1,
+        category: 'simple user',
         name: 'James Nix',
         job: 'Full Stack Developer',
         phone: '046 5685 6969',
@@ -24,6 +25,7 @@ export class UserListComponent implements OnInit {
       {
         id: 2,
         name: 'Darlene Smith',
+        category: 'admin',
         job: 'UI/UX Designer',
         phone: '012 6587 1236',
         email:'DarleneSmith@spy.com',
@@ -33,6 +35,7 @@ export class UserListComponent implements OnInit {
       {
         id: 2,
         name: 'William Swift',
+        category: 'simple user',
         job: 'Backend Developer',
         phone: '012 6587 1236',
         email:' WilliamSwift@spy.co',
