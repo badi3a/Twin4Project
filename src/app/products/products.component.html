@@ -14,16 +14,16 @@
                   </li>
                   <li>
                       <a href="#submenu1" data-bs-toggle="collapse" class="nav-link px-0 align-middle">
-                          <i class="fs-4 bi-speedometer2"></i> <span class="ms-1 d-none d-sm-inline">Category</span> </a>
+                          <i class="fs-4 bi-speedometer2"></i> <span class="ms-1 d-none d-sm-inline"><b>Category</b></span> </a>
                       <ul class="collapse show nav flex-column ms-1" id="submenu1" data-bs-parent="#menu">
                           <li class="w-100">
-                              <a  class="nav-link px-0"> <span class="d-none d-sm-inline">Women</span></a>
+                              <a  [routerLink]="['category','women']" class="nav-link px-0"> <span class="d-none d-sm-inline">Women</span></a>
                           </li>
                           <li>
-                              <a class="nav-link px-0"> <span class="d-none d-sm-inline">Men</span></a>
+                              <a  [routerLink]="['category','men']"class="nav-link px-0"> <span class="d-none d-sm-inline">Men</span></a>
                           </li>
                           <li>
-                            <a  class="nav-link px-0"> <span class="d-none d-sm-inline">kids</span> </a>
+                            <a  [routerLink]="['category','kids']" class="nav-link px-0"> <span class="d-none d-sm-inline">kids</span> </a>
                         </li>
                       </ul>
                   </li>
@@ -46,9 +46,7 @@
           </div>
       </div>
       <div class="col py-3">
-        <div class="container">
-         <router-outlet></router-outlet>
-        </div>
+          <router-outlet></router-outlet>
       </div>
   </div>
 </div>
