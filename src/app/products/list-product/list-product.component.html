@@ -1,4 +1,11 @@
 <h1>{{title}}</h1>
+<button class="btn btn-danger" (click)="outStock()">
+  Out Of Stock
+</button>
+<div class="alert alert-danger" *ngIf="stock!= null">
+ {{stock}} products are out of stock !
+ <a routerLink="outofstock">more details</a>
+</div>
 <form class="col-md-6">
 <input type="number" name="p" [(ngModel)]="priceMax" class="form-control" placeholder="search by price">
 </form>

@@ -1,3 +1,4 @@
+import { AdminProductComponent } from './admin-product/admin-product.component';
 import { FormProductComponent } from './form-product/form-product.component';
 import { ListProductComponent } from './list-product/list-product.component';
 import { NgModule, Component } from '@angular/core';
@@ -9,7 +10,8 @@ const routes: Routes = [
   {path:'', component: ListProductComponent},
   {path:'list',component: ListProductComponent},
   {path:'new', component: FormProductComponent},
-  {path:'category/:category', component:ListProductComponent}]}]
+  {path:'category/:category', component:ListProductComponent},
+  {path:'outofstock',component:AdminProductComponent}]}]
 
 
 @NgModule({
