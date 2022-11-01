@@ -1,1 +1,70 @@
-<p>form-product works!</p>
+<h1>{{action}}Product</h1>
+<form #f="ngForm">
+ <div class="form-group col-md-6">
+    <label>Name:*</label>
+    <input type="text" name="name" [(ngModel)]="product.name"
+    class="form-control" required minlength="3"
+     pattern="[A-Za-z]{3,12}$" #n="ngModel">
+    <div class="alert alert-danger" *ngIf="n.invalid && n.touched">
+        <div *ngIf="n.hasError('required')">
+           this field is required
+          </div>
+        <div *ngIf="n.hasError('minlength')">
+           minlength = 3 !
+        </div>
+        <div *ngIf="n.hasError('pattern')">
+          error pattern
+       </div>
+    </div>
+ </div>
+ <div class="form-group col-md-6">
+    <label>price</label>
+    <input type="number" name="price"
+    [(ngModel)]="product.price"class="form-control"
+    required #p="ngModel">
+    <div class="alert alert-danger" *ngIf="p.invalid && p.touched">
+      this field is required
+    </div>
+  </div>
+  <div class="form-group col-md-6">
+    <label>quantity</label>
+    <input type="number" name="quantity"
+    [(ngModel)]="product.quantity"
+    class="form-control" required #qt="ngModel">
+    <div class="alert alert-danger" *ngIf="qt.invalid && qt.touched">
+      this field is required
+    </div>
+  </div>
+  <div class="form-group col-md-6">
+    <label>category</label>
+    <select [(ngModel)]="product.category" name="category" class="form-control" required>
+      <option value="men">men</option>
+      <option value="women">women</option>
+      <option value="kids">kids</option>
+    </select>
+  </div>
+  <div class="form-group col-md-6">
+    <label>description</label>
+    <input [(ngModel)]="product.description"
+    type="text" name="description"
+    class="form-control" required #d="ngModel">
+    <div class="alert alert-danger" *ngIf="d.invalid && d.touched">
+      this field is required
+    </div>
+  </div>
+  <div class="form-group col-md-6">
+    <label>picture</label>
+    <input type="text" [(ngModel)]="product.picture"
+    name="picture" class="form-control"
+    required #pi="ngModel">
+    <div class="alert alert-danger" *ngIf="pi.invalid && pi.touched">
+      this field is required
+  </div>
+  </div>
+  <button (click)="saveProduct()"
+   class="btn btn-sm btn-success"
+   [disabled]="f.invalid" >
+    {{action}}
+  </button>
+
+</form>

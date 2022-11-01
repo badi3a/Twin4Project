@@ -8,6 +8,7 @@ import { FormsModule } from '@angular/forms';
 import { FormProductComponent } from './form-product/form-product.component';
 import { DetailProductComponent } from './detail-product/detail-product.component';
 import { AdminProductComponent } from './admin-product/admin-product.component';
+import { ProductService } from '../core/services/product.service';
 
 
 @NgModule({

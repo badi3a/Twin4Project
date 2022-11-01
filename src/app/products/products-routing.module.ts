@@ -10,8 +10,9 @@ const routes: Routes = [
   {path:'', component: ListProductComponent},
   {path:'list',component: ListProductComponent},
   {path:'new', component: FormProductComponent},
+  {path:'update/:id', component: FormProductComponent},
   {path:'category/:category', component:ListProductComponent},
-  {path:'list/outofstock',component:AdminProductComponent}]}]
+  {path:'outofstock',component:AdminProductComponent}]}]
 
 
 @NgModule({

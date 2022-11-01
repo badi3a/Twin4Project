@@ -1,6 +1,7 @@
 import { Product } from './../model/product';
 import { Injectable } from '@angular/core';
 
+
 @Injectable({
   providedIn: 'root'
 })
@@ -27,7 +28,7 @@ export class ProductService {
       picture: 'https://lp2.hm.com/hmgoepprod?set=quality%5B79%5D%2Csource%5B%2Fff%2F55%2Fff55f8591a27acf2678a6f531add67167d41993a.jpg%5D%2Corigin%5Bdam%5D%2Ccategory%5B%5D%2Ctype%5BLOOKBOOK%5D%2Cres%5Bm%5D%2Chmver%5B1%5D&call=url[file:/product/main]'
     },
     {
-      id: 12,
+      id: 13,
       name: 'T-shirt 2',
       price: 18,
       nbrLike: 40,
@@ -37,7 +38,7 @@ export class ProductService {
       picture: 'https://lp2.hm.com/hmgoepprod?set=quality%5B79%5D%2Csource%5B%2F94%2Fa0%2F94a0f95305117dab710e5e5a829422b43dde52e2.jpg%5D%2Corigin%5Bdam%5D%2Ccategory%5B%5D%2Ctype%5BLOOKBOOK%5D%2Cres%5Bm%5D%2Chmver%5B2%5D&call=url[file:/product/main]'
     },
     {
-      id: 12,
+      id: 14,
       name: 'Outfit 1',
       price: 280,
       nbrLike: 0,
@@ -50,6 +51,21 @@ export class ProductService {
   constructor() { }
   deleteProduct(){
       //cnx avec backend
-
   }
+  getProductByID(id:number): any{
+      for(let i in this.list){
+        if(this.list[i]['id']==id){
+          return this.list[i]
+        }
+      }
+       //return null;
+  }
+
+  updateProduct(product: Product){
+    for(let p of this.list){
+      if(p.id===product.id){
+          p=product
+      }
+  }
+}
 }
