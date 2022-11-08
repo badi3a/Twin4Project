@@ -32,7 +32,9 @@ export class FormProductComponent implements OnInit {
     this.productService.list.push(this.product);
     this.router.navigate(['/product/list'])}
     else {
-      this.productService.updateProduct(this.product)
+      this.productService.updateProduct(this.product);
+      this.router.navigate(['/product/list'])
+
     }
   }
 
