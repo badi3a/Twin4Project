@@ -8,7 +8,8 @@ import { HttpClient } from '@angular/common/http';
   providedIn: 'root'
 })
 export class ProductService {
-   public url= environment.url+'/products/'
+ url='http://localhost:3000/products'
+  public url= environment.url+'/products/'
   constructor(private http: HttpClient) { }
   getAllProduct(){
     return this.http.get<Product[]>(this.url)
