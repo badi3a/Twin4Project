@@ -1,0 +1,15 @@
+{
+  "products": [
+    {
+      "name": "test",
+      "price": 12,
+      "quantity": 0,
+      "nbrLike": 0,
+      "picture": "String",
+      "description": "test",
+      "category": "men",
+      "id": 1
+    }
+  ],
+  "users": []
+}

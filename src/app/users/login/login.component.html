@@ -3,7 +3,8 @@
   <div class="form-group col-md-3">
     <label>email:*</label>
     <input type="email" formControlName="email" name="email" class="form-control">
-    <div class="alert alert-danger" *ngIf="form.controls['email'].invalid">
+    <div class="alert alert-danger"
+        *ngIf="form.controls['email'].invalid">
         <p *ngIf="form.controls['email'].hasError('required')">
           email is required
         </p>
