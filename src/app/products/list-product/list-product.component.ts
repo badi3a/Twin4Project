@@ -23,20 +23,29 @@ export class ListProductComponent implements OnInit {
   ngOnInit(): void {
     this.title = 'MyStore App';
     //get the list from the service
-    this.all = this.productService.list;
-    //filter
-    this.route.params.subscribe(
-      (params) => {
-        this.category = params['category'];
-        if (this.category != null) {
-          this.list = this.all.filter((product) => product.category == this.category)
-        } else {
-          this.list = this.all
-        }
-      },
+          this.productService.getAllProduct().subscribe(
+            (response:Product[])=>{
+              this.all= response;
+              //filter
+          console.log(this.all);
+          this.route.params.subscribe(
+            (params) => {
+              this.category = params['category'];
+              if (this.category != null) {
+                this.list = this.all.filter((product) => product.category == this.category)
+              } else {
+                this.list = this.all
+              }
+            },
       () => { console.log('error') },
       () => { console.log('complete') }
     )
+      },
+      ()=>{console.log("error")},
+      ()=>{console.log("complete")}
+
+    );
+
   }
 
   outStock(){
@@ -50,6 +59,8 @@ export class ListProductComponent implements OnInit {
     if (i != -1) {
       this.list[i].nbrLike++
       //cnx to  backend side
+      product.nbrLike++;
+      this.productService.update(product).subscribe();
     }
   }
   buyProduct(product: Product): void {
@@ -57,6 +68,8 @@ export class ListProductComponent implements OnInit {
     if (i != -1) {
       this.list[i].quantity--
       //cnx to  backend side
+      product.quantity--
+      this.productService.update(product).subscribe();
     }
   }
 }

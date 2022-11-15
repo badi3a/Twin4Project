@@ -12,12 +12,19 @@ export class AdminProductComponent implements OnInit {
   constructor(private serviceProduct: ProductService) { }
 
   ngOnInit(): void {
-    this.list= this.serviceProduct.
-    list.filter(product=>product.quantity==0);
+    this.serviceProduct.getAllProduct().subscribe(
+      (data:Product[])=>{
+        this.list=data;
+        this.list= this.list.filter(product=>product.quantity==0);}
+    )
+
+
   }
   delete(p:Product){
     let i = this.list.indexOf(p);
-    this.list.splice(i,1)
+    this.serviceProduct.delete(p.id).subscribe(
+      ()=>{this.list.splice(i,1)}
+    )
   }
 
 }

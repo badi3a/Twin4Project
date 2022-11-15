@@ -8,9 +8,11 @@ import { HttpClient } from '@angular/common/http';
   providedIn: 'root'
 })
 export class ProductService {
- url='http://localhost:3000/products'
-  public url= environment.url+'/products/'
+  //uri pour les web service backend liés Produit
+  public url= environment.url+'products/';
+
   constructor(private http: HttpClient) { }
+
   getAllProduct(){
     return this.http.get<Product[]>(this.url)
   }
@@ -23,6 +25,12 @@ export class ProductService {
   update(p:Product){
     return this.http.put(this.url+p.id, p)
   }
+  getProductByID(id:number){
+    return this.http.get<Product>(this.url+id)
+  }
+
+
+
 /*
   deleteProduct(){
       //cnx avec backend

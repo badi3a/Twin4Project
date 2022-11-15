@@ -19,7 +19,10 @@ export class FormProductComponent implements OnInit {
     if(id!=null){
       //update
       this.action="update";
-      this.product= this.productService.getProductByID(id);
+      //this.product= this.productService.getProductByID(id);
+      this.productService.getProductByID(id).subscribe(
+        (object: Product)=> this.product=object
+      )
       console.log(this.product)
       console.log(id)
     }else
@@ -29,12 +32,15 @@ export class FormProductComponent implements OnInit {
   saveProduct(){
     if(this.action=='add')
     {this.product.nbrLike=0;
-    this.productService.list.push(this.product);
-    this.router.navigate(['/product/list'])}
+    //this.productService.list.push(this.product);
+    this.productService.addProduct(this.product).subscribe(
+      ()=>{ this.router.navigate(['/product/list'])}
+    )
+   }
     else {
-      this.productService.updateProduct(this.product);
-      this.router.navigate(['/product/list'])
-
+      this.productService.update(this.product).subscribe(
+        ()=> this.router.navigate(['/product/list'])
+      )
     }
   }
 
